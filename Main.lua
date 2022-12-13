@@ -1,6 +1,5 @@
 	game.StarterGui:SetCore("SendNotification",{
-		Title = "GELATEK HUB ISN'T DISCONTINUED. ";
-		Text = "SOMEONE SAY EMPER THAT THIS ISNT DISCONTINUED, and tell him to dm poncho.";
+		Title = "Hi Emper, Read the github please.";
 		Duration = 5
 	})
 local Global = (getgenv and getgenv()) or shared
