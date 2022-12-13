@@ -1,3 +1,8 @@
+	game.StarterGui:SetCore("SendNotification",{
+		Title = "GELATEK HUB ISN'T DISCONTINUED. ";
+		Text = "SOMEONE SAY EMPER THAT THIS ISNT DISCONTINUED, and tell him to dm poncho.";
+		Duration = 5
+	})
 local Global = (getgenv and getgenv()) or shared
 if not isfile and isfolder and writefile and (getsynasset or getcustomasset) then
     warn("Exploit will not run custom songs")
