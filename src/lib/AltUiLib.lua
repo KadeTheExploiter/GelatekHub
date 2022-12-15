@@ -330,7 +330,7 @@ function Library:Create(text)
 			TextBoxText.Position = UDim2.new(0.0299999993, 0, 0.161290318, 0)
 			TextBoxText.Size = UDim2.new(0, 206, 0, 21)
 			TextBoxText.Font = Enum.Font.Gotham
-			TextBoxText.Text = "How Many Robux?"
+			TextBoxText.Text = namegfrsjghf or "How Many Robux?"
 			TextBoxText.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextBoxText.TextSize = 14.000
 			TextBoxText.TextXAlignment = Enum.TextXAlignment.Left
@@ -350,15 +350,16 @@ function Library:Create(text)
 			TextBoxMainCorner.CornerRadius = UDim.new(0.100000001, 1)
 			TextBoxMainCorner.Name = "TextBoxMainCorner"
 			TextBoxMainCorner.Parent = TextBoxMain
-			TextBoxMain.FocusLost:Connect(function(enterPressed)
-				if enterPressed then
-					if callback then
-						callback(TextBoxMain.Text)
+			task.spawn(function()
+				TextBoxMain.FocusLost:Connect(function(enterPressed)
+					if enterPressed then
+						if callback then
+							callback(TextBoxMain.Text)
+						end
+						TextBoxMain.Text = ""
 					end
-					TextBoxMain.Text = ""
-				end
+				end)
 			end)
-			
 		end
 		return Stuff
 	end
