@@ -16,36 +16,31 @@ Global.AntiScript = function()
 	part.Parent = game:FindFirstChildOfClass("TestService")
 end
 Global.AlignPart = function(Part0, Part1, Position, Orientation)
-	local PAttachment_0 = Instance.new("Attachment"); do
-		PAttachment_0.Name = "Att0"
-		PAttachment_0.Parent = Part0
-	end
-	local PAttachment_1 = Instance.new("Attachment"); do
-		PAttachment_1.Position = Position or Vector3.new()
-		PAttachment_1.Name = "Att1"
-		PAttachment_1.Parent = Part1
-	end
-	
-	local OAttachment_0 = Instance.new("Attachment"); do
-		OAttachment_0.Orientation = Orientation or Vector3.new()
-		OAttachment_0.Name = "Att0"
-		OAttachment_0.Parent = Part0
-	end
-	local OAttachment_1 = Instance.new("Attachment"); do
-		OAttachment_1.Name = "Att1"
-		OAttachment_1.Parent = Part1
-	end
-	
 	Part0:BreakJoints()
-	local Event
-	
-	Event = game:GetService("RunService").PostSimulation:Connect(function()
-		if (not PAttachment_0 and PAttachment_0.Parent) then
-			Event:Disconnect()
-		end
-		Part0.Velocity = Vector3.new(0,0,0)
-		Part0.CFrame = Part1.CFrame * CFrame.new(PAttachment_1.Position, OAttachment_0.Orientation)
-	end)
+	local Attachment0 = Instance.new("Attachment"); do
+		Attachment0.Name = "Att0"
+		Attachment0.Position = Position or Vector3.new()
+		Attachment0.Orientation = Orientation or Vector3.new()
+		Attachment0.Parent = Part0
+	end
+	local Attachment1 = Instance.new("Attachment"); do
+		Attachment1.Name = "Att1"
+		Attachment1.Parent = Part1
+	end
+	local AlignPosition = Instance.new("AlignPosition"); do
+		AlignPosition.MaxForce = math.huge
+		AlignPosition.Responsiveness = 200
+		AlignPosition.Attachment0 = Attachment0
+		AlignPosition.Attachment1 = Attachment1
+		AlignPosition.Parent = Part0
+	end
+	local AlignOrientation = Instance.new("AlignOrientation"); do
+		AlignOrientation.MaxTorque = 9e9
+		AlignOrientation.Responsiveness = 200
+		AlignOrientation.Attachment0 = Attachment0
+		AlignOrientation.Attachment1 = Attachment1
+		AlignOrientation.Parent = Part0
+	end
 end
 
 Global.GetLoadLibrary = function()
