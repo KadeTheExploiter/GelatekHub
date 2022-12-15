@@ -29,8 +29,13 @@ Global.GelatekHubConfig = {
 	["Anti Void"] = false,
 	["Anti Void Offset"] = 75
 }
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekHub/main/src/lib/UILibrary.lua"))()
-local Main = Library:Create("Gelatek Hub - V1.0.5", "Thanks for using the hub! :3", Color3.fromRGB(50, 168, 82))
+local Library;
+if Global.OldGui ~= true then
+	Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekHub/main/src/lib/AltUiLib.lua"))()
+else
+	Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekHub/main/src/lib/UILibrary.lua"))()
+end
+local Main = Library:Create("Gelatek Hub")
 local UserInputService = game:GetService("UserInputService")
 if UserInputService.TouchEnabled then
 	game.StarterGui:SetCore("SendNotification",{
@@ -40,16 +45,6 @@ if UserInputService.TouchEnabled then
 	})
 end
 
-local READTHIS = Main:MakeTab("READ THIS PLS")
-do
-	READTHIS:MakeLabel("HATS ARE OPTIONAL!!!!!")
-	READTHIS:MakeLabel("no hats = fake hats")
-	READTHIS:MakeLabel("ppl cant see fake hats")
-	READTHIS:MakeLabel("")
-	READTHIS:MakeLabel("mobile bugs a lot for this hub")
-	READTHIS:MakeLabel("dont expect fixes for mobile execs")
-end
-	
 local Home = Main:MakeTab("Home")
 local Reanimate = Main:MakeTab("Reanimate")
 local FreeScripts = Main:MakeTab("Free Scripts")
@@ -58,6 +53,7 @@ local Animations = Main:MakeTab("Animations")
 local Credits = Main:MakeTab("Credits")
 local Hats = Main:MakeTab("Hats")
 Home:MakeLabel("Hello! Thanks for using the hub.")
+Home:MakeLabel("Current Version: 1.0.6")
 Home:MakeButton("Copy Discord Invite", function()
 	setclipboard("https://discord.gg/fx5BszFmMY")
 end)
@@ -71,6 +67,7 @@ end
 Reanimate:MakeButton("Reanimate", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekHub/main/src/lib/Reanimate.lua"))()
 end)
+if Global.OldGui ~= true then Reanimate:MakeLine() end
 Reanimate:MakeToggle("Permanent Death", function(Bool)
 	Global.GelatekHubConfig["Permanent Death"] = Bool
 end)
@@ -92,16 +89,17 @@ end)
 Reanimate:MakeToggle("Anti Void", function(Bool)
 	Global.GelatekHubConfig["Anti Void"] = Bool
 end)
-Reanimate:MakeSlider("Anti Void Offset", 75, 200, function(Value)
-	Global.GelatekHubConfig["Anti Void Offset"] = Value
-end)
 FreeScripts:MakeButton(" - [ Stop Script ] - ", BetterStopScript)
+if Global.OldGui ~= true then FreeScripts:MakeLine() end
 HatScripts:MakeButton(" - [ Stop Script ] - ", BetterStopScript)
+if Global.OldGui ~= true then HatScripts:MakeLine() end
 Animations:MakeButton(" - [ Stop Animation ] - ", BetterStopScript)
+if Global.OldGui ~= true then Animations:MakeLine() end
 do -- [[ Animations ]] --
 	Animations:MakeTextBox("Custom Anim", function(Text)
 		PlayAnimation(Text)
 	end)
+	if Global.OldGui ~= true then Animations:MakeLine() end
 	Animations:MakeButton("Freestylin'", function()
 		PlayAnimation(4432024917, "GelatekHub/Animations/Freestylin.mp3")
 	end)
@@ -201,9 +199,6 @@ do -- [[ Scripts ]] --
 	HatScripts:MakeButton("Goner", function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekHub/main/src/scripts/Goner.lua"))()
 	end)
-	HatScripts:MakeButton("[BUGS] Lightning Cannon V4", function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekHub/main/src/scripts/LightningCannon.lua"))()
-	end)
 	
 	FreeScripts:MakeButton("Gale Fighter", function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekHub/main/src/scripts/GaleFighter.lua"))()
@@ -262,16 +257,13 @@ do -- [[ Hats ]] --
 	Hats:MakeButton("Copy Goner Hat", function()
 		setclipboard("6869866014")
 	end)
-	Hats:MakeButton("Copy Lightning Cannon V4 Hat", function()
-		setclipboard("4623059912")
-	end)
 end
 
 do -- [[ Credits ]] --
 	Credits:MakeLabel("Gui: Gelatek")
 	Credits:MakeLabel("Reanimate: Gelatek")
 	Credits:MakeLabel("Anim ID Player: Gelatek / Derek")
-	Credits:MakeLabel("Converts: Gelatek / Emper")
+	Credits:MakeLabel("Converts: Gelatek")
 end
 
 
