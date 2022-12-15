@@ -39,7 +39,7 @@ Global.AlignPart = function(Part0, Part1, Position, Orientation)
 	Part0:BreakJoints()
 	local Event
 	
-	Event = RunServ.PostSimulation:Connect(function()
+	Event = game:GetService("RunService").PostSimulation:Connect(function()
 		if (not PAttachment_0 and PAttachment_0.Parent) then
 			Event:Disconnect()
 		end
