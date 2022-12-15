@@ -78,19 +78,13 @@ local FakeHats = INew("Folder"); do FakeHats.Name = "FakeHats"; FakeHats.Parent 
 Character.Archivable = true
 Humanoid:ChangeState(16)
 
-pcall(function() -- [[ Anti Ragdoll | taken from my oldest reanim lol  (i think it origiates from shiba reanim idfk and idfc ]] --
-	Character:FindFirstChild("Local Ragdoll"):Destroy()
-	Character:FindFirstChild("State Handler"):Destroy()
-	Character:FindFirstChild("Controls"):Destroy()
-	Character:FindFirstChild("FirstPerson"):Destroy()
-	Character:FindFirstChild("FakeAdmin"):Destroy()
 
-	for Index, RagdollStuff in pairs(CharacterD) do
-		if RagdollStuff:IsA("BallSocketConstraint") or RagdollStuff:IsA("HingeConstraint") then
-			RagdollStuff:Destroy()
-		end
+for Index, RagdollStuff in pairs(Character:GetDescendants()) do
+	if RagdollStuff:IsA("BallSocketConstraint") or RagdollStuff:IsA("HingeConstraint") then
+		RagdollStuff:Destroy()
 	end
-end)
+end
+
 
 -- Mizt's Hat Renamer
 local HatsNames = {}
