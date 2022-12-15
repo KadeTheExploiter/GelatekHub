@@ -1,7 +1,4 @@
-	game.StarterGui:SetCore("SendNotification",{
-		Title = "Hi Emper, Read the github please.";
-		Duration = 5
-	})
+
 local Global = (getgenv and getgenv()) or shared
 if not isfile and isfolder and writefile and (getsynasset or getcustomasset) then
     warn("Exploit will not run custom songs")
