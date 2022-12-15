@@ -28,7 +28,7 @@ Global.AlignPart = function(Part0, Part1, Position, Orientation)
 	
 	local OAttachment_0 = Instance.new("Attachment"); do
 		OAttachment_0.Orientation = Orientation or Vector3.new()
-		OAttachment_0.Name = "Att0".
+		OAttachment_0.Name = "Att0"
 		OAttachment_0.Parent = Part0
 	end
 	local OAttachment_1 = Instance.new("Attachment"); do
