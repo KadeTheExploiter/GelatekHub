@@ -390,7 +390,6 @@ local function MiniRandom() return "0." .. MathRandom(6, 8) .. MathRandom(1, 9) 
 PreSimEvent = PreSim:Connect(function() -- Noclip
 	local AntiVoidOffset = Global.GelatekHubConfig["Anti Void Offset"] or 75
 	if Figure.HumanoidRootPart.Position.Y <= FallHeight + AntiVoidOffset then VoidEvent() end
-	Velocity = V3new(MathRandom(-1,1), -26 - MiniRandom(), MathRandom(-1,1)) + FigureHum.MoveDirection*135
 	for _,v in pairs(CharacterChildren) do
 		if v:IsA("BasePart") then
 			v.CanCollide = false
@@ -429,7 +428,9 @@ local function Align(Part0, Part1, Offset)
 	local OwnerShip = Part0:FindFirstChild("ClaimCheck")
 	if Is_NetworkOwner(Part0) == true then
 		if OwnerShip then OwnerShip.Transparency = 1 end
-		if (CollideFling and Part0.Name ~= IGNORETORSOCHECK) or not CollideFling then Part0.AssemblyLinearVelocity = Velocity end
+		if (CollideFling and Part0.Name ~= IGNORETORSOCHECK) or not CollideFling then 
+			Part0.AssemblyLinearVelocity = V3new(MathRandom(-2,2), -30 - MiniRandom(), MathRandom(-2,2)) + FigureHum.MoveDirection * (Part0.Mass * 40) )
+		end
 		if (CollideFling and Part0.Name ~= "HumanoidRootPart") or not CollideFling then Part0.RotVelocity = Part1.RotVelocity end
 		Part0.CFrame = Part1.CFrame * CFOffset
 	else
