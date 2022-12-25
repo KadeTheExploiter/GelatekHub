@@ -1,4 +1,4 @@
-
+warn("please dont steall the hub source please kthx")
 local Global = (getgenv and getgenv()) or shared
 if not isfile and isfolder and writefile and (getsynasset or getcustomasset) then
     warn("Exploit will not run custom songs")
