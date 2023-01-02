@@ -37,6 +37,7 @@ local CollideFling = Global.GelatekHubConfig["Torso Fling"]  or false
 local BulletEnabled = Global.GelatekHubConfig["Bullet Enabled"] or false
 local KeepHairWelds = Global.GelatekHubConfig["Keep Hats On Head"] or false
 local HeadlessPerma = Global.GelatekHubConfig["Headless On Perma"] or false
+local DisableAnimations = Global.GelatekHubConfig["Disable Anims"] or false
 local Collisions = Global.GelatekHubConfig["Enable Collisions"] or false
 local AntiVoid = Global.GelatekHubConfig["Anti Void"] or false
 if CollideFling and BulletEnabled then CollideFling = false end
@@ -555,4 +556,6 @@ ResetEvent = Character:GetPropertyChangedSignal("Parent"):Connect(function(Paren
 end)
 
 Warn("Reanimated in " .. string.sub(tostring(tick()-Speed),1,string.find(tostring(tick()-Speed),".")+5))
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekReanimate/main/Addons/Animations.lua"))()
+if not DisableAnimations then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekReanimate/main/Addons/Animations.lua"))()
+end
