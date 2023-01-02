@@ -53,7 +53,7 @@ local Animations = Main:MakeTab("Animations")
 local Credits = Main:MakeTab("Credits")
 local Hats = Main:MakeTab("Hats")
 Home:MakeLabel("Hello! Thanks for using the hub.")
-Home:MakeLabel("Current Version: 1.0.6")
+Home:MakeLabel("Current Version: 1.0.6b")
 Home:MakeButton("Copy Discord Invite", function()
 	setclipboard("https://discord.gg/fx5BszFmMY")
 end)
@@ -85,6 +85,9 @@ Reanimate:MakeToggle("Keep Hats On Head", function(Bool)
 end)
 Reanimate:MakeToggle("Headless On Perma", function(Bool)
 	Global.GelatekHubConfig["Headless On Perma"] = Bool
+end)
+Reanimate:MakeToggle("Disable Animations", function(Bool)
+	Global.GelatekHubConfig["Disable Anims"] = Bool
 end)
 Reanimate:MakeToggle("Anti Void", function(Bool)
 	Global.GelatekHubConfig["Anti Void"] = Bool
