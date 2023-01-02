@@ -74,7 +74,7 @@ local Humanoid = Character:FindFirstChildWhichIsA("Humanoid")
 if not Humanoid then return end
 local RootPart = Character:FindFirstChild("HumanoidRootPart")
 local R15 = Humanoid.RigType.Name == "R15" and true or false
-
+local Sin, Cos, Inf, Clamp, Clock = math.sin, math.cos, math.huge, math.clamp, os.clock
 local FakeHats = INew("Folder"); do FakeHats.Name = "FakeHats"; FakeHats.Parent = TestService end
 Character.Archivable = true
 Humanoid:ChangeState(16)
@@ -427,7 +427,7 @@ local function Align(Part0, Part1, Offset)
 			Part0.AssemblyLinearVelocity = V3new(MathRandom(-2,2), -30 - MiniRandom(), MathRandom(-2,2)) + FigureHum.MoveDirection * (Part0.Mass * 40)
 		end
 		if (CollideFling and Part0.Name ~= "HumanoidRootPart") or not CollideFling then Part0.RotVelocity = Part1.RotVelocity end
-		Part0.CFrame = Part1.CFrame * CFOffset
+		Part0.CFrame = Part1.CFrame * CFOffset * CFNew(0.0085 * Cos(Clock() * 10), 0.0085 * Sin(Clock() * 10), 0)
 	else
 		if OwnerShip then OwnerShip.Transparency = 0 end
 	end
