@@ -424,7 +424,7 @@ local function Align(Part0, Part1, Offset)
 	if Is_NetworkOwner(Part0) == true then
 		if OwnerShip then OwnerShip.Transparency = 1 end
 		if (CollideFling and Part0.Name ~= IGNORETORSOCHECK) or not CollideFling then 
-			Part0.AssemblyLinearVelocity = V3new(MathRandom(-2,2), -30 - MiniRandom(), MathRandom(-2,2)) + FigureHum.MoveDirection * (Part0.Mass * 40)
+			Part0.AssemblyLinearVelocity = V3new(MathRandom(-2,2), -30 - MiniRandom(), MathRandom(-2,2)) + FigureHum.MoveDirection * (Part0.Mass * 10)
 		end
 		if (CollideFling and Part0.Name ~= "HumanoidRootPart") or not CollideFling then Part0.RotVelocity = Part1.RotVelocity end
 		Part0.CFrame = Part1.CFrame * CFOffset * CFNew(0.0085 * Cos(Clock() * 10), 0.0085 * Sin(Clock() * 10), 0)
