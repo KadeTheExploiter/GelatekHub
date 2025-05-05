@@ -25,11 +25,11 @@ local DownloadModule = function(DirName, Song)
 end
 
 for _, Name in Scripts do
-	DownloadModule("Animations", Name)
+	DownloadModule("Scripts", Name)
 end
 
 for _, Name in Animations do
-	DownloadModule("Scripts", Name)
+	DownloadModule("Animations", Name)
 end
 
 warn("[SUCCESS], Downloaded all songs.")
