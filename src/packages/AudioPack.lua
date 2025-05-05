@@ -32,4 +32,4 @@ for _, Name in Animations do
 	DownloadModule("Scripts", Name)
 end
 
-write("[SUCCESS], Downloaded all songs.")
+warn("[SUCCESS], Downloaded all songs.")
