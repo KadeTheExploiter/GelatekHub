@@ -12,7 +12,7 @@ end
 
 local SongsURL = "https://github.com/StrokeThePea/GelatekHubSongs/blob/main/"
 local Scripts = {"GaleFighter", "TheHotline", "DualUltima", "NeptunainV", "Ender", "Chips", "AbyssEye", "VoodooDoll", "BanzaiBazooka", "Carnage"}
-local Animations = {"CaramellDansen", "Freestylin", "Floss", "Parrot", "Smooth%20Moves", "Electro%20Swing", "Smug", "Aerostepping", "Orange%20Justice", "Breakdown", "Crabby", "Drip", "Laughing", "Take%20The%20L"}
+local Animations = {"CaramellDansen", "Freestylin", "Floss", "Parrot", "Smooth Moves", "Electro Swing", "Smug", "Aerostepping", "Orange Justice", "Breakdown", "Crabby", "Drip", "Laughing", "Take The L"}
 
 local DownloadModule = function(DirName, Song)
 	local SongPath = "GelatekHub/" ..DirName.. "/".. Song.. ".mp3"
